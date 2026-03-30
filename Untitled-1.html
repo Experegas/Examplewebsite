@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaitreya Designs - Professional Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: rgba(255,255,255,0.95);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #764ba2;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #764ba2;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1.5" fill="white" opacity="0.05"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>') center/cover;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #764ba2;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        section {
+            padding: 100px 0;
+        }
+        h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: white;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        .team-card {
+            background: rgba(255,255,255,0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        .team-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+        .team-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .team-card .title {
+            color: #764ba2;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .experience {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+        .project-img {
+            height: 250px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        .project-content {
+            padding: 2rem;
+        }
+        .project-content h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .project-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        footer {
+            background: rgba(0,0,0,0.9);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo">Jaitreya Designs</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Jaitreya Designs</h1>
+            <p>Excellence in Design & Innovation</p>
+            <a href="#team" class="btn">Meet Our Team</a>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+        <div class="container">
+            <h2>Our Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-card img">JD</div>
+                    <h3>Jaitreya Malviya</h3>
+                    <div class="title">**CEO & Founder**</div>
+                    <div class="experience">**Visionary Leader with 10+ years of expertise**</div>
+                    <p>Founder of Jaitreya Designs, driving innovation and excellence in every project. Passionate about creating transformative design solutions.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-card img">NS</div>
+                    <h3>Mr. Naitik</h3>
+                    <div class="title">**Director**</div>
+                    <div class="experience">**9+ years of experience**<br><span style="font-size: 0.9em; color: #667eea;">Previously worked at Google</span></div>
+                    <p>Strategic director with proven expertise from Google and extensive industry experience. Leading operations with precision and innovation.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-card img">KS</div>
+                    <h3>Kartikey Singh</h3>
+                    <div class="title">**Senior Branch Head**</div>
+                    <div class="experience">**15+ years of experience**</div>
+                    <p>Seasoned leader overseeing multiple branches with unmatched expertise and dedication to excellence in design execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" style="background: rgba(255,255,255,0.95); color: #333;">
+        <div class="container">
+            <h2 style="color: #333;">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">🏢</div>
+                    <div class="project-content">
+                        <h3>Corporate Headquarters</h3>
+                        <p>Complete design and branding for a 50,000 sq ft corporate headquarters. Modern architecture with sustainable features.</p>
+                        <span style="color: #764ba2; font-weight: bold;">Completed 2024</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">🏠</div>
+                    <div class="project-content">
+                        <h3>Luxury Residential Complex</h3>
+                        <p>Premium residential project featuring smart home technology and contemporary design elements for 200+ units.</p>
+                        <span style="color: #764ba2; font-weight: bold;">Ongoing 2025</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">🏬</div>
+                    <div class="project-content">
+                        <h3>Retail Mall Redesign</h3>
+                        <p>Complete makeover of a 3-floor shopping mall with enhanced customer experience and modern retail spaces.</p>
+                        <span style="color: #764ba2; font-weight: bold;">Completed 2023</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">🏥</div>
+                    <div class="project-content">
+                        <h3>Healthcare Facility</h3>
+                        <p>State-of-the-art hospital design focusing on patient comfort, efficient workflow, and modern medical infrastructure.</p>
+                        <span style="color: #764ba2; font-weight: bold;">Completed 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Jaitreya Designs</h3>
+            <p>&copy; 2024 Jaitreya Designs. All rights reserved. | Excellence in Every Design</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255,255,255,0.98)';
+            } else {
+                header.style.background = 'rgba(255,255,255,0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
